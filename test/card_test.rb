@@ -1,6 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require '../lib/card'
+require 'test_helper.rb'
+require_relative '../lib/card.rb'
 
 class CardTest < Minitest::Test
   def test_it_exists
