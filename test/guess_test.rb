@@ -1,7 +1,8 @@
+require 'test_helper.rb'
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../lib/card'
-require '../lib/guess'
+require_relative '../lib/card.rb'
+require_relative '../lib/guess.rb'
 
 class GuessTest < Minitest::Test
   def test_it_exists

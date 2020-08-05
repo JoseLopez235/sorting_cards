@@ -1,4 +1,4 @@
-require_relative 'card'
+require 'card.rb'
 
 class Guess
   def initialize(value, response)
