@@ -2,6 +2,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @guesses = []
+    @correct_guesses = 0
   end
 
   def deck
@@ -10,5 +11,9 @@ class Round
 
   def guesses
     @guesses
+  end
+
+  def number_correct
+    @correct_guesses
   end
 end
