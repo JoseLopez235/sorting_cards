@@ -9,6 +9,10 @@ class Round
     @deck
   end
 
+  def current_card
+    @deck.cards[0]
+  end
+  
   def guesses
     @guesses
   end
