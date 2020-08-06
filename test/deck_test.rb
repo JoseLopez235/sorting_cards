@@ -28,6 +28,7 @@ class DeckTest < Minitest::Test
     card_3 = Card.new("5","Diamonds")
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
+
     assert_equal deck.count, 3
   end
 
