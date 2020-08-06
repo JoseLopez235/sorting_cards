@@ -1,8 +1,10 @@
 class Round
+
+  attr_reader :guesses, :number_correct
   def initialize(deck)
     @deck = deck
     @guesses = []
-    @correct_guesses = 0
+    @number_correct = 0
   end
 
   def deck
@@ -12,12 +14,8 @@ class Round
   def current_card
     @deck.cards[0]
   end
-  
-  def guesses
-    @guesses
-  end
 
-  def number_correct
-    @correct_guesses
+  def percent_correct
+    return ((@number_correct / @guesses.count) * 100).round(1)
   end
 end

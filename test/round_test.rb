@@ -32,16 +32,27 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4","Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
-    
+
     assert_equal card_1, round.current_card
   end
-    
+
   def test_it_returns_recorded_guesses
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4","Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
-    
+
     assert_equal round.guesses, []
+  end
+
+  #This test is temporary untill the relative
+  #method is created
+  def test_should_return_number_of_correct_guesses
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4","Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    assert_equal round.number_correct, 0
   end
 end
