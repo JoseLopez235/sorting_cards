@@ -1,6 +1,4 @@
 require 'test_helper.rb'
-require 'minitest/autorun'
-require 'minitest/pride'
 require_relative '../lib/card.rb'
 require_relative '../lib/guess.rb'
 
