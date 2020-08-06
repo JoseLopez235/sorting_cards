@@ -1,4 +1,6 @@
 require 'test_helper.rb'
+require 'minitest/autorun'
+require 'minitest/pride'
 require_relative '../lib/card.rb'
 require_relative '../lib/guess.rb'
 
@@ -14,6 +16,13 @@ class GuessTest < Minitest::Test
     card = Card.new("10", "Hearts")
     guess = Guess.new("10 of Hearts", card)
 
-    assert_equal "10 of Hearts", guess.response  
+    assert_equal "10 of Hearts", guess.response
+  end
+
+  def test_if_card_returns
+    card = Card.new("10", "Hearts")
+    guess = Guess.new("10 of Hearts", card)
+
+    assert_equal card, guess.card
   end
 end
