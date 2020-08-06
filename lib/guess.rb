@@ -1,8 +1,9 @@
 require_relative 'card.rb'
 
 class Guess
-  def initialize(value, response)
-    @value = value
+  attr_reader :card, :response
+  def initialize(response, card)
+    @card = card
     @response = response
   end
 end
