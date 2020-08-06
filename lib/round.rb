@@ -6,4 +6,8 @@ class Round
   def deck
     @deck
   end
+
+  def current_card
+    @deck.cards[0]
+  end
 end
