@@ -23,7 +23,7 @@ class RoundTest < Minitest::Test
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
 
-    assert_equal round.deck, deck
+    assert_equal deck, round.deck
   end
 
 
@@ -42,11 +42,21 @@ class RoundTest < Minitest::Test
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
 
-    assert_equal round.guesses, []
+    new_guess = round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal [new_guess], round.guesses
   end
 
-  #This test is temporary untill the relative
-  #method is created
+  def test_should_return_instance_of_guess_class
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4","Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    new_guess = round.record_guess({value: "3", suit: "Hearts"})
+
+    assert_instance_of Guess, new_guess
+    assert_equal 1, round.deck.count
+  end
+
   def test_should_return_number_of_correct_guesses
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4","Clubs")
@@ -54,5 +64,24 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     assert_equal round.number_correct, 0
+    round.record_guess({value: "3", suit: "Hearts"})
+
+    assert_equal 1, round.number_correct
   end
+
+  def test_should_return_a_percentage_of_right_guesses
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4","Clubs")
+    card_3 = Card.new("5","Diamonds")
+    deck = Deck.new([card_1, card_2, card_3])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "3", suit: "Hearts"})
+
+    assert_equal 50, round.percent_correct
+
+    round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal 33.3, round.percent_correct
+  end
+
 end
